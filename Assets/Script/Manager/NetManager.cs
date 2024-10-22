@@ -36,11 +36,11 @@ public class NetManager : Singleton<NetManager>
     /// <summary>
     /// 服务器ip
     /// </summary>
-    private string m_Ip = "192.168.1.63";
+    public string m_Ip = "240e:473:7640:110d:1b42:6765:6717:7d3d";
     /// <summary>
     /// 服务器监听端口
     /// </summary>
-    private int m_Port = 8011;
+    public int m_Port = 8011;
 
     //链接状态
     /// <summary>
@@ -366,7 +366,8 @@ public class NetManager : Singleton<NetManager>
     void InitState()
     {
         //初始化变量
-        m_Socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+        m_Socket = new Socket(AddressFamily.InterNetworkV6, SocketType.Stream, ProtocolType.Tcp);
+
         m_ReadBuff = new ByteArray();
         m_WriteQueue = new Queue<ByteArray>();
         m_Connecting = false;
